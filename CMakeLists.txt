@@ -7,7 +7,7 @@ set(CP_LLVM_INSTALL_DIR "" CACHE PATH "LLVM installation directory")
 set(CP_LLVM_INCLUDE_DIR "${CP_LLVM_INSTALL_DIR}/include/llvm")
 if(NOT EXISTS "${CP_LLVM_INCLUDE_DIR}")
 message(FATAL_ERROR
-  " CP_LLVM_INSTALL_DIR (${CP_LLVM_INCLUDE_DIR}) is invalid.")
+  "${CP_LLVM_INCLUDE_DIR} does not exist, CP_LLVM_INSTALL_DIR (${CP_LLVM_INSTALL_DIR}) is invalid")
 endif()
 
 set(CP_LLVM_CMAKE_FILE "${CP_LLVM_INSTALL_DIR}/lib/cmake/clang/ClangConfig.cmake")

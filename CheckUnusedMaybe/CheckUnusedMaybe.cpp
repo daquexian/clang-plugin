@@ -18,23 +18,21 @@ public:
     {
       auto skip_filenames_env =
           llvm::StringRef(std::getenv("ONEFLOW_MAYBE_CHECK_SKIP_FN"));
-      if (skip_filenames_env.empty()) {
-        return;
-      }
-      skip_filenames_env.split(skip_filenames, ";");
-      for (const auto &x : skip_filenames) {
-        llvm::outs() << "skip: " << x << "\n";
+      if (!skip_filenames_env.empty()) {
+        skip_filenames_env.split(skip_filenames, ";");
+        for (const auto &x : skip_filenames) {
+          llvm::outs() << "skip: " << x << "\n";
+        }
       }
     }
     {
       auto only_filenames_env =
           llvm::StringRef(std::getenv("ONEFLOW_MAYBE_CHECK_ONLY_FN"));
-      if (only_filenames_env.empty()) {
-        return;
-      }
-      only_filenames_env.split(only_filenames, ";");
-      for (const auto &x : only_filenames) {
-        llvm::outs() << "only: " << x << "\n";
+      if (!only_filenames_env.empty()) {
+        only_filenames_env.split(only_filenames, ";");
+        for (const auto &x : only_filenames) {
+          llvm::outs() << "only: " << x << "\n";
+        }
       }
     }
   }
